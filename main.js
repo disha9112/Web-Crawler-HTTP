@@ -1,1 +1,18 @@
-console.log("Hello World!");
+const { crawlPage } = require("./crawl");
+
+function main() {
+  if (process.argv.length < 3) {
+    console.log("No website provided");
+    process.exit(1);
+  }
+  // there should be exactly 3 commands in the terminal
+  if (process.argv.length > 3) {
+    console.log("Too many command line args");
+    process.exit(1);
+  }
+  const baseURL = process.argv[2];
+  console.log(`Starting crawl of ${baseURL}...`);
+  crawlPage(baseURL);
+}
+
+main();
